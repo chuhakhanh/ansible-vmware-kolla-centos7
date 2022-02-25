@@ -1,0 +1,1582 @@
+Pre-deployment checking : ansible-playbook -i ./multinode -e @/etc/kolla/globals.yml -e @/etc/kolla/passwords.yml -e CONFIG_DIR=/etc/kolla  -e kolla_action=precheck /venv_kolla-c2/share/kolla-ansible/ansible/site.yml 
+
+PLAY [Gather facts for all hosts] *********************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************
+ok: [c2-compute-3]
+ok: [c2-compute-2]
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+ok: [c2-compute-1]
+ok: [localhost]
+
+TASK [Group hosts to determine when using --limit] ****************************************************************************************************************************************************
+changed: [c2-compute-1]
+changed: [c2-compute-3]
+changed: [c2-compute-2]
+changed: [c2-control-1]
+changed: [c2-control-2]
+changed: [c2-control-3]
+changed: [localhost]
+
+PLAY [Gather facts for all hosts (if using --limit)] **************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Group hosts based on configuration] *************************************************************************************************************************************************************
+
+TASK [Group hosts based on OpenStack release] *********************************************************************************************************************************************************
+changed: [c2-compute-1]
+changed: [c2-compute-3]
+changed: [c2-compute-2]
+changed: [c2-control-1]
+changed: [c2-control-2]
+changed: [c2-control-3]
+changed: [localhost]
+
+TASK [Group hosts based on Kolla action] **************************************************************************************************************************************************************
+changed: [c2-compute-1]
+changed: [c2-compute-3]
+changed: [c2-compute-2]
+changed: [c2-control-1]
+changed: [c2-control-2]
+changed: [c2-control-3]
+changed: [localhost]
+
+TASK [Group hosts based on enabled services] **********************************************************************************************************************************************************
+ok: [c2-compute-1] => (item=enable_aodh_False)
+ok: [c2-compute-1] => (item=enable_barbican_False)
+ok: [c2-compute-1] => (item=enable_blazar_False)
+ok: [c2-compute-1] => (item=enable_ceilometer_False)
+ok: [c2-compute-1] => (item=enable_ceph_False)
+ok: [c2-compute-3] => (item=enable_aodh_False)
+ok: [c2-compute-3] => (item=enable_barbican_False)
+ok: [c2-compute-1] => (item=enable_chrony_True)
+ok: [c2-compute-1] => (item=enable_cinder_False)
+ok: [c2-compute-1] => (item=enable_cloudkitty_False)
+ok: [c2-compute-3] => (item=enable_blazar_False)
+ok: [c2-compute-3] => (item=enable_ceilometer_False)
+ok: [c2-compute-1] => (item=enable_collectd_False)
+ok: [c2-compute-1] => (item=enable_congress_False)
+ok: [c2-compute-3] => (item=enable_ceph_False)
+ok: [c2-compute-1] => (item=enable_cyborg_False)
+ok: [c2-compute-3] => (item=enable_chrony_True)
+ok: [c2-compute-3] => (item=enable_cinder_False)
+ok: [c2-compute-1] => (item=enable_designate_False)
+ok: [c2-compute-3] => (item=enable_cloudkitty_False)
+ok: [c2-compute-1] => (item=enable_elasticsearch_False)
+ok: [c2-compute-1] => (item=enable_etcd_False)
+ok: [c2-compute-3] => (item=enable_collectd_False)
+ok: [c2-compute-3] => (item=enable_congress_False)
+ok: [c2-compute-1] => (item=enable_freezer_False)
+ok: [c2-compute-1] => (item=enable_glance_True)
+ok: [c2-compute-3] => (item=enable_cyborg_False)
+ok: [c2-compute-1] => (item=enable_gnocchi_False)
+ok: [c2-compute-3] => (item=enable_designate_False)
+ok: [c2-compute-3] => (item=enable_elasticsearch_False)
+ok: [c2-compute-1] => (item=enable_grafana_False)
+ok: [c2-compute-1] => (item=enable_haproxy_True)
+ok: [c2-compute-1] => (item=enable_heat_True)
+ok: [c2-compute-3] => (item=enable_etcd_False)
+ok: [c2-compute-3] => (item=enable_freezer_False)
+ok: [c2-control-1] => (item=enable_aodh_False)
+ok: [c2-control-1] => (item=enable_barbican_False)
+ok: [c2-compute-1] => (item=enable_horizon_True)
+ok: [c2-compute-3] => (item=enable_glance_True)
+ok: [c2-control-1] => (item=enable_blazar_False)
+ok: [c2-control-1] => (item=enable_ceilometer_False)
+ok: [c2-compute-2] => (item=enable_aodh_False)
+ok: [c2-compute-2] => (item=enable_barbican_False)
+ok: [c2-compute-1] => (item=enable_hyperv_False)
+ok: [c2-compute-3] => (item=enable_gnocchi_False)
+ok: [c2-compute-3] => (item=enable_grafana_False)
+ok: [c2-compute-1] => (item=enable_influxdb_False)
+ok: [c2-compute-1] => (item=enable_ironic_False)
+ok: [c2-compute-2] => (item=enable_blazar_False)
+ok: [c2-compute-3] => (item=enable_haproxy_True)
+ok: [c2-control-1] => (item=enable_ceph_False)
+ok: [c2-control-1] => (item=enable_chrony_True)
+ok: [c2-compute-1] => (item=enable_iscsid_False)
+ok: [c2-compute-3] => (item=enable_heat_True)
+ok: [c2-compute-3] => (item=enable_horizon_True)
+ok: [c2-control-1] => (item=enable_cinder_False)
+ok: [c2-compute-1] => (item=enable_kafka_False)
+ok: [c2-compute-1] => (item=enable_karbor_False)
+ok: [c2-compute-2] => (item=enable_ceilometer_False)
+ok: [c2-compute-2] => (item=enable_ceph_False)
+ok: [c2-compute-3] => (item=enable_hyperv_False)
+ok: [c2-control-1] => (item=enable_cloudkitty_False)
+ok: [c2-control-1] => (item=enable_collectd_False)
+ok: [c2-compute-1] => (item=enable_keystone_True)
+ok: [c2-compute-3] => (item=enable_influxdb_False)
+ok: [c2-compute-3] => (item=enable_ironic_False)
+ok: [c2-control-1] => (item=enable_congress_False)
+ok: [c2-compute-2] => (item=enable_chrony_True)
+ok: [c2-compute-1] => (item=enable_kibana_False)
+ok: [c2-compute-1] => (item=enable_kuryr_False)
+ok: [c2-compute-3] => (item=enable_iscsid_False)
+ok: [c2-control-1] => (item=enable_cyborg_False)
+ok: [c2-control-1] => (item=enable_designate_False)
+ok: [c2-compute-1] => (item=enable_magnum_False)
+ok: [c2-compute-2] => (item=enable_cinder_False)
+ok: [c2-compute-2] => (item=enable_cloudkitty_False)
+ok: [c2-compute-3] => (item=enable_kafka_False)
+ok: [c2-compute-3] => (item=enable_karbor_False)
+ok: [c2-control-1] => (item=enable_elasticsearch_False)
+ok: [c2-compute-1] => (item=enable_manila_False)
+ok: [c2-compute-1] => (item=enable_mariadb_True)
+ok: [c2-compute-3] => (item=enable_keystone_True)
+ok: [c2-control-1] => (item=enable_etcd_False)
+ok: [c2-control-1] => (item=enable_freezer_False)
+ok: [c2-compute-2] => (item=enable_collectd_False)
+ok: [c2-compute-1] => (item=enable_masakari_False)
+ok: [c2-compute-3] => (item=enable_kibana_False)
+ok: [c2-compute-3] => (item=enable_kuryr_False)
+ok: [c2-control-1] => (item=enable_glance_True)
+ok: [c2-compute-1] => (item=enable_memcached_True)
+ok: [c2-compute-2] => (item=enable_congress_False)
+ok: [c2-compute-3] => (item=enable_magnum_False)
+ok: [c2-control-1] => (item=enable_gnocchi_False)
+ok: [c2-control-1] => (item=enable_grafana_False)
+ok: [c2-control-2] => (item=enable_aodh_False)
+ok: [c2-compute-1] => (item=enable_mistral_False)
+ok: [c2-compute-1] => (item=enable_monasca_False)
+ok: [c2-compute-3] => (item=enable_manila_False)
+ok: [c2-compute-3] => (item=enable_mariadb_True)
+ok: [c2-control-1] => (item=enable_haproxy_True)
+ok: [c2-compute-2] => (item=enable_cyborg_False)
+ok: [c2-compute-2] => (item=enable_designate_False)
+ok: [c2-compute-1] => (item=enable_mongodb_False)
+ok: [c2-compute-3] => (item=enable_masakari_False)
+ok: [c2-control-2] => (item=enable_barbican_False)
+ok: [c2-control-2] => (item=enable_blazar_False)
+ok: [c2-control-1] => (item=enable_heat_True)
+ok: [c2-control-1] => (item=enable_horizon_True)
+ok: [c2-compute-1] => (item=enable_multipathd_False)
+ok: [c2-compute-1] => (item=enable_murano_False)
+ok: [c2-compute-3] => (item=enable_memcached_True)
+ok: [c2-compute-3] => (item=enable_mistral_False)
+ok: [c2-compute-2] => (item=enable_elasticsearch_False)
+ok: [c2-control-1] => (item=enable_hyperv_False)
+ok: [c2-compute-1] => (item=enable_neutron_True)
+ok: [c2-control-2] => (item=enable_ceilometer_False)
+ok: [c2-compute-3] => (item=enable_monasca_False)
+ok: [c2-control-2] => (item=enable_ceph_False)
+ok: [c2-control-2] => (item=enable_chrony_True)
+ok: [c2-control-1] => (item=enable_influxdb_False)
+ok: [c2-control-2] => (item=enable_cinder_False)
+ok: [c2-compute-1] => (item=enable_nova_True)
+ok: [c2-compute-1] => (item=enable_octavia_False)
+ok: [c2-compute-3] => (item=enable_mongodb_False)
+ok: [c2-compute-3] => (item=enable_multipathd_False)
+ok: [c2-compute-2] => (item=enable_etcd_False)
+ok: [c2-compute-2] => (item=enable_freezer_False)
+ok: [c2-control-1] => (item=enable_ironic_False)
+ok: [c2-control-1] => (item=enable_iscsid_False)
+ok: [c2-compute-1] => (item=enable_opendaylight_False)
+ok: [c2-compute-3] => (item=enable_murano_False)
+ok: [c2-compute-2] => (item=enable_glance_True)
+ok: [c2-control-1] => (item=enable_kafka_False)
+ok: [c2-compute-1] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-compute-1] => (item=enable_outward_rabbitmq_False)
+ok: [c2-compute-3] => (item=enable_neutron_True)
+ok: [c2-compute-3] => (item=enable_nova_True)
+ok: [c2-control-1] => (item=enable_karbor_False)
+ok: [c2-control-1] => (item=enable_keystone_True)
+ok: [c2-compute-2] => (item=enable_gnocchi_False)
+ok: [c2-compute-2] => (item=enable_grafana_False)
+ok: [c2-compute-1] => (item=enable_panko_False)
+ok: [c2-control-2] => (item=enable_cloudkitty_False)
+ok: [c2-control-2] => (item=enable_collectd_False)
+ok: [c2-compute-3] => (item=enable_octavia_False)
+ok: [c2-compute-3] => (item=enable_opendaylight_False)
+ok: [c2-control-3] => (item=enable_aodh_False)
+ok: [c2-control-3] => (item=enable_barbican_False)
+ok: [c2-compute-3] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-compute-3] => (item=enable_outward_rabbitmq_False)
+ok: [c2-control-1] => (item=enable_kibana_False)
+ok: [c2-compute-2] => (item=enable_haproxy_True)
+ok: [c2-compute-1] => (item=enable_placement_True)
+ok: [c2-compute-1] => (item=enable_prometheus_False)
+ok: [c2-control-2] => (item=enable_congress_False)
+ok: [c2-compute-3] => (item=enable_panko_False)
+ok: [c2-control-3] => (item=enable_blazar_False)
+ok: [c2-control-3] => (item=enable_ceilometer_False)
+ok: [c2-control-1] => (item=enable_kuryr_False)
+ok: [c2-control-1] => (item=enable_magnum_False)
+ok: [localhost] => (item=enable_aodh_False)
+ok: [c2-compute-3] => (item=enable_placement_True)
+ok: [c2-compute-1] => (item=enable_qdrouterd_False)
+ok: [c2-compute-2] => (item=enable_heat_True)
+ok: [localhost] => (item=enable_barbican_False)
+ok: [localhost] => (item=enable_blazar_False)
+ok: [localhost] => (item=enable_ceilometer_False)
+ok: [localhost] => (item=enable_ceph_False)
+ok: [localhost] => (item=enable_chrony_True)
+ok: [localhost] => (item=enable_cinder_False)
+ok: [localhost] => (item=enable_cloudkitty_False)
+ok: [c2-compute-3] => (item=enable_prometheus_False)
+ok: [c2-compute-3] => (item=enable_qdrouterd_False)
+ok: [c2-compute-3] => (item=enable_qinling_False)
+ok: [c2-compute-3] => (item=enable_rabbitmq_True)
+ok: [c2-compute-3] => (item=enable_rally_False)
+ok: [c2-control-1] => (item=enable_manila_False)
+ok: [c2-control-1] => (item=enable_mariadb_True)
+ok: [c2-control-1] => (item=enable_masakari_False)
+ok: [c2-control-1] => (item=enable_memcached_True)
+ok: [c2-control-1] => (item=enable_mistral_False)
+ok: [c2-control-1] => (item=enable_monasca_False)
+ok: [c2-control-1] => (item=enable_mongodb_False)
+ok: [c2-control-1] => (item=enable_multipathd_False)
+ok: [c2-compute-1] => (item=enable_qinling_False)
+ok: [c2-compute-1] => (item=enable_rabbitmq_True)
+ok: [c2-compute-1] => (item=enable_rally_False)
+ok: [c2-compute-2] => (item=enable_horizon_True)
+ok: [c2-compute-2] => (item=enable_hyperv_False)
+ok: [c2-compute-2] => (item=enable_influxdb_False)
+ok: [c2-compute-2] => (item=enable_ironic_False)
+ok: [c2-compute-2] => (item=enable_iscsid_False)
+ok: [c2-compute-2] => (item=enable_kafka_False)
+ok: [c2-compute-2] => (item=enable_karbor_False)
+ok: [c2-control-3] => (item=enable_ceph_False)
+ok: [c2-control-3] => (item=enable_chrony_True)
+ok: [c2-control-3] => (item=enable_cinder_False)
+ok: [c2-control-3] => (item=enable_cloudkitty_False)
+ok: [c2-control-3] => (item=enable_collectd_False)
+ok: [c2-control-3] => (item=enable_congress_False)
+ok: [c2-control-3] => (item=enable_cyborg_False)
+ok: [c2-control-3] => (item=enable_designate_False)
+ok: [c2-control-3] => (item=enable_elasticsearch_False)
+ok: [c2-control-1] => (item=enable_murano_False)
+ok: [c2-control-1] => (item=enable_neutron_True)
+ok: [c2-control-1] => (item=enable_nova_True)
+ok: [c2-control-2] => (item=enable_cyborg_False)
+ok: [c2-control-2] => (item=enable_designate_False)
+ok: [c2-control-2] => (item=enable_elasticsearch_False)
+ok: [c2-control-2] => (item=enable_etcd_False)
+ok: [c2-control-2] => (item=enable_freezer_False)
+ok: [c2-control-2] => (item=enable_glance_True)
+ok: [c2-control-2] => (item=enable_gnocchi_False)
+ok: [c2-control-1] => (item=enable_octavia_False)
+ok: [c2-control-1] => (item=enable_opendaylight_False)
+ok: [c2-control-1] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-control-2] => (item=enable_grafana_False)
+ok: [c2-control-2] => (item=enable_haproxy_True)
+ok: [c2-control-2] => (item=enable_heat_True)
+ok: [c2-control-2] => (item=enable_horizon_True)
+ok: [c2-control-2] => (item=enable_hyperv_False)
+ok: [c2-control-2] => (item=enable_influxdb_False)
+ok: [c2-control-2] => (item=enable_ironic_False)
+ok: [c2-control-2] => (item=enable_iscsid_False)
+ok: [c2-control-2] => (item=enable_kafka_False)
+ok: [c2-control-2] => (item=enable_karbor_False)
+ok: [c2-compute-3] => (item=enable_redis_False)
+ok: [c2-compute-3] => (item=enable_sahara_False)
+ok: [c2-compute-3] => (item=enable_searchlight_False)
+ok: [c2-compute-3] => (item=enable_senlin_False)
+ok: [c2-compute-3] => (item=enable_skydive_False)
+ok: [c2-compute-3] => (item=enable_solum_False)
+ok: [c2-compute-3] => (item=enable_storm_False)
+ok: [c2-compute-3] => (item=enable_swift_False)
+ok: [c2-compute-3] => (item=enable_tacker_False)
+ok: [c2-compute-3] => (item=enable_telegraf_False)
+ok: [c2-compute-3] => (item=enable_tempest_False)
+ok: [c2-compute-3] => (item=enable_trove_False)
+ok: [c2-compute-2] => (item=enable_keystone_True)
+ok: [c2-compute-2] => (item=enable_kibana_False)
+ok: [c2-compute-2] => (item=enable_kuryr_False)
+ok: [c2-compute-2] => (item=enable_magnum_False)
+ok: [c2-compute-2] => (item=enable_manila_False)
+ok: [c2-compute-2] => (item=enable_mariadb_True)
+ok: [c2-compute-2] => (item=enable_masakari_False)
+ok: [c2-compute-2] => (item=enable_memcached_True)
+ok: [c2-compute-2] => (item=enable_mistral_False)
+ok: [c2-compute-2] => (item=enable_monasca_False)
+ok: [c2-compute-2] => (item=enable_mongodb_False)
+ok: [c2-compute-2] => (item=enable_multipathd_False)
+ok: [c2-compute-2] => (item=enable_murano_False)
+ok: [c2-compute-2] => (item=enable_neutron_True)
+ok: [c2-compute-2] => (item=enable_nova_True)
+ok: [c2-compute-3] => (item=enable_vitrage_False)
+ok: [c2-compute-3] => (item=enable_vmtp_False)
+ok: [c2-compute-3] => (item=enable_watcher_False)
+ok: [c2-compute-3] => (item=enable_zookeeper_False)
+ok: [c2-control-1] => (item=enable_outward_rabbitmq_False)
+ok: [c2-control-1] => (item=enable_panko_False)
+ok: [c2-control-1] => (item=enable_placement_True)
+ok: [c2-control-1] => (item=enable_prometheus_False)
+ok: [c2-control-1] => (item=enable_qdrouterd_False)
+ok: [c2-compute-3] => (item=enable_zun_False)
+ok: [c2-control-1] => (item=enable_qinling_False)
+ok: [c2-control-1] => (item=enable_rabbitmq_True)
+ok: [c2-control-1] => (item=enable_rally_False)
+ok: [c2-control-1] => (item=enable_redis_False)
+ok: [c2-control-1] => (item=enable_sahara_False)
+ok: [c2-control-1] => (item=enable_searchlight_False)
+ok: [c2-control-1] => (item=enable_senlin_False)
+ok: [c2-compute-2] => (item=enable_octavia_False)
+ok: [c2-control-1] => (item=enable_skydive_False)
+ok: [c2-control-1] => (item=enable_solum_False)
+ok: [c2-compute-2] => (item=enable_opendaylight_False)
+ok: [c2-control-1] => (item=enable_storm_False)
+ok: [c2-compute-2] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-control-1] => (item=enable_swift_False)
+ok: [c2-control-3] => (item=enable_etcd_False)
+ok: [c2-control-3] => (item=enable_freezer_False)
+ok: [c2-control-3] => (item=enable_glance_True)
+ok: [c2-control-3] => (item=enable_gnocchi_False)
+ok: [c2-control-3] => (item=enable_grafana_False)
+ok: [c2-control-3] => (item=enable_haproxy_True)
+ok: [c2-control-3] => (item=enable_heat_True)
+ok: [c2-control-3] => (item=enable_horizon_True)
+ok: [c2-control-3] => (item=enable_hyperv_False)
+ok: [c2-control-3] => (item=enable_influxdb_False)
+ok: [c2-control-3] => (item=enable_ironic_False)
+ok: [c2-control-3] => (item=enable_iscsid_False)
+ok: [c2-control-3] => (item=enable_kafka_False)
+ok: [c2-control-3] => (item=enable_karbor_False)
+ok: [c2-control-3] => (item=enable_keystone_True)
+ok: [c2-control-3] => (item=enable_kibana_False)
+ok: [c2-control-3] => (item=enable_kuryr_False)
+ok: [c2-control-3] => (item=enable_magnum_False)
+ok: [c2-control-3] => (item=enable_manila_False)
+ok: [c2-control-3] => (item=enable_mariadb_True)
+ok: [c2-control-3] => (item=enable_masakari_False)
+ok: [c2-control-3] => (item=enable_memcached_True)
+ok: [c2-control-3] => (item=enable_mistral_False)
+ok: [c2-control-3] => (item=enable_monasca_False)
+ok: [c2-control-3] => (item=enable_mongodb_False)
+ok: [c2-compute-1] => (item=enable_redis_False)
+ok: [c2-compute-1] => (item=enable_sahara_False)
+ok: [c2-compute-1] => (item=enable_searchlight_False)
+ok: [c2-compute-1] => (item=enable_senlin_False)
+ok: [c2-compute-1] => (item=enable_skydive_False)
+ok: [c2-compute-1] => (item=enable_solum_False)
+ok: [c2-compute-1] => (item=enable_storm_False)
+ok: [c2-compute-1] => (item=enable_swift_False)
+ok: [c2-compute-1] => (item=enable_tacker_False)
+ok: [c2-compute-1] => (item=enable_telegraf_False)
+ok: [c2-compute-1] => (item=enable_tempest_False)
+ok: [c2-compute-1] => (item=enable_trove_False)
+ok: [c2-compute-1] => (item=enable_vitrage_False)
+ok: [c2-compute-1] => (item=enable_vmtp_False)
+ok: [c2-compute-1] => (item=enable_watcher_False)
+ok: [c2-compute-1] => (item=enable_zookeeper_False)
+ok: [c2-compute-1] => (item=enable_zun_False)
+ok: [c2-compute-2] => (item=enable_outward_rabbitmq_False)
+ok: [c2-compute-2] => (item=enable_panko_False)
+ok: [c2-compute-2] => (item=enable_placement_True)
+ok: [c2-compute-2] => (item=enable_prometheus_False)
+ok: [c2-compute-2] => (item=enable_qdrouterd_False)
+ok: [c2-compute-2] => (item=enable_qinling_False)
+ok: [c2-compute-2] => (item=enable_rabbitmq_True)
+ok: [c2-compute-2] => (item=enable_rally_False)
+ok: [c2-compute-2] => (item=enable_redis_False)
+ok: [c2-compute-2] => (item=enable_sahara_False)
+ok: [c2-compute-2] => (item=enable_searchlight_False)
+ok: [c2-compute-2] => (item=enable_senlin_False)
+ok: [c2-compute-2] => (item=enable_skydive_False)
+ok: [c2-compute-2] => (item=enable_solum_False)
+ok: [c2-compute-2] => (item=enable_storm_False)
+ok: [c2-compute-2] => (item=enable_swift_False)
+ok: [c2-compute-2] => (item=enable_tacker_False)
+ok: [c2-compute-2] => (item=enable_telegraf_False)
+ok: [c2-compute-2] => (item=enable_tempest_False)
+ok: [c2-compute-2] => (item=enable_trove_False)
+ok: [c2-compute-2] => (item=enable_vitrage_False)
+ok: [c2-compute-2] => (item=enable_vmtp_False)
+ok: [c2-compute-2] => (item=enable_watcher_False)
+ok: [c2-compute-2] => (item=enable_zookeeper_False)
+ok: [c2-compute-2] => (item=enable_zun_False)
+ok: [c2-control-3] => (item=enable_multipathd_False)
+ok: [c2-control-1] => (item=enable_tacker_False)
+ok: [c2-control-3] => (item=enable_murano_False)
+ok: [c2-control-3] => (item=enable_neutron_True)
+ok: [c2-control-3] => (item=enable_nova_True)
+ok: [c2-control-3] => (item=enable_octavia_False)
+ok: [c2-control-3] => (item=enable_opendaylight_False)
+ok: [c2-control-3] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-control-3] => (item=enable_outward_rabbitmq_False)
+ok: [c2-control-3] => (item=enable_panko_False)
+ok: [c2-control-3] => (item=enable_placement_True)
+ok: [c2-control-3] => (item=enable_prometheus_False)
+ok: [c2-control-3] => (item=enable_qdrouterd_False)
+ok: [c2-control-3] => (item=enable_qinling_False)
+ok: [localhost] => (item=enable_collectd_False)
+ok: [localhost] => (item=enable_congress_False)
+ok: [localhost] => (item=enable_cyborg_False)
+ok: [localhost] => (item=enable_designate_False)
+ok: [localhost] => (item=enable_elasticsearch_False)
+ok: [localhost] => (item=enable_etcd_False)
+ok: [localhost] => (item=enable_freezer_False)
+ok: [localhost] => (item=enable_glance_True)
+ok: [localhost] => (item=enable_gnocchi_False)
+ok: [localhost] => (item=enable_grafana_False)
+ok: [localhost] => (item=enable_haproxy_True)
+ok: [localhost] => (item=enable_heat_True)
+ok: [c2-control-3] => (item=enable_rabbitmq_True)
+ok: [c2-control-3] => (item=enable_rally_False)
+ok: [c2-control-3] => (item=enable_redis_False)
+ok: [c2-control-3] => (item=enable_sahara_False)
+ok: [c2-control-3] => (item=enable_searchlight_False)
+ok: [localhost] => (item=enable_horizon_True)
+ok: [localhost] => (item=enable_hyperv_False)
+ok: [localhost] => (item=enable_influxdb_False)
+ok: [localhost] => (item=enable_ironic_False)
+ok: [localhost] => (item=enable_iscsid_False)
+ok: [localhost] => (item=enable_kafka_False)
+ok: [localhost] => (item=enable_karbor_False)
+ok: [localhost] => (item=enable_keystone_True)
+ok: [localhost] => (item=enable_kibana_False)
+ok: [localhost] => (item=enable_kuryr_False)
+ok: [localhost] => (item=enable_magnum_False)
+ok: [localhost] => (item=enable_manila_False)
+ok: [localhost] => (item=enable_mariadb_True)
+ok: [localhost] => (item=enable_masakari_False)
+ok: [localhost] => (item=enable_memcached_True)
+ok: [localhost] => (item=enable_mistral_False)
+ok: [localhost] => (item=enable_monasca_False)
+ok: [localhost] => (item=enable_mongodb_False)
+ok: [localhost] => (item=enable_multipathd_False)
+ok: [localhost] => (item=enable_murano_False)
+ok: [localhost] => (item=enable_neutron_True)
+ok: [localhost] => (item=enable_nova_True)
+ok: [localhost] => (item=enable_octavia_False)
+ok: [localhost] => (item=enable_opendaylight_False)
+ok: [localhost] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [localhost] => (item=enable_outward_rabbitmq_False)
+ok: [localhost] => (item=enable_panko_False)
+ok: [localhost] => (item=enable_placement_True)
+ok: [localhost] => (item=enable_prometheus_False)
+ok: [localhost] => (item=enable_qdrouterd_False)
+ok: [localhost] => (item=enable_qinling_False)
+ok: [localhost] => (item=enable_rabbitmq_True)
+ok: [localhost] => (item=enable_rally_False)
+ok: [localhost] => (item=enable_redis_False)
+ok: [localhost] => (item=enable_sahara_False)
+ok: [localhost] => (item=enable_searchlight_False)
+ok: [localhost] => (item=enable_senlin_False)
+ok: [localhost] => (item=enable_skydive_False)
+ok: [localhost] => (item=enable_solum_False)
+ok: [localhost] => (item=enable_storm_False)
+ok: [localhost] => (item=enable_swift_False)
+ok: [localhost] => (item=enable_tacker_False)
+ok: [localhost] => (item=enable_telegraf_False)
+ok: [localhost] => (item=enable_tempest_False)
+ok: [localhost] => (item=enable_trove_False)
+ok: [localhost] => (item=enable_vitrage_False)
+ok: [localhost] => (item=enable_vmtp_False)
+ok: [localhost] => (item=enable_watcher_False)
+ok: [localhost] => (item=enable_zookeeper_False)
+ok: [localhost] => (item=enable_zun_False)
+ok: [c2-control-3] => (item=enable_senlin_False)
+ok: [c2-control-3] => (item=enable_skydive_False)
+ok: [c2-control-3] => (item=enable_solum_False)
+ok: [c2-control-3] => (item=enable_storm_False)
+ok: [c2-control-3] => (item=enable_swift_False)
+ok: [c2-control-3] => (item=enable_tacker_False)
+ok: [c2-control-3] => (item=enable_telegraf_False)
+ok: [c2-control-3] => (item=enable_tempest_False)
+ok: [c2-control-3] => (item=enable_trove_False)
+ok: [c2-control-3] => (item=enable_vitrage_False)
+ok: [c2-control-3] => (item=enable_vmtp_False)
+ok: [c2-control-3] => (item=enable_watcher_False)
+ok: [c2-control-3] => (item=enable_zookeeper_False)
+ok: [c2-control-3] => (item=enable_zun_False)
+ok: [c2-control-2] => (item=enable_keystone_True)
+ok: [c2-control-2] => (item=enable_kibana_False)
+ok: [c2-control-2] => (item=enable_kuryr_False)
+ok: [c2-control-2] => (item=enable_magnum_False)
+ok: [c2-control-2] => (item=enable_manila_False)
+ok: [c2-control-2] => (item=enable_mariadb_True)
+ok: [c2-control-2] => (item=enable_masakari_False)
+ok: [c2-control-2] => (item=enable_memcached_True)
+ok: [c2-control-2] => (item=enable_mistral_False)
+ok: [c2-control-2] => (item=enable_monasca_False)
+ok: [c2-control-2] => (item=enable_mongodb_False)
+ok: [c2-control-2] => (item=enable_multipathd_False)
+ok: [c2-control-2] => (item=enable_murano_False)
+ok: [c2-control-2] => (item=enable_neutron_True)
+ok: [c2-control-2] => (item=enable_nova_True)
+ok: [c2-control-2] => (item=enable_octavia_False)
+ok: [c2-control-2] => (item=enable_opendaylight_False)
+ok: [c2-control-2] => (item=enable_openvswitch_True_enable_ovs_dpdk_False)
+ok: [c2-control-2] => (item=enable_outward_rabbitmq_False)
+ok: [c2-control-2] => (item=enable_panko_False)
+ok: [c2-control-2] => (item=enable_placement_True)
+ok: [c2-control-2] => (item=enable_prometheus_False)
+ok: [c2-control-2] => (item=enable_qdrouterd_False)
+ok: [c2-control-2] => (item=enable_qinling_False)
+ok: [c2-control-2] => (item=enable_rabbitmq_True)
+ok: [c2-control-2] => (item=enable_rally_False)
+ok: [c2-control-2] => (item=enable_redis_False)
+ok: [c2-control-2] => (item=enable_sahara_False)
+ok: [c2-control-2] => (item=enable_searchlight_False)
+ok: [c2-control-2] => (item=enable_senlin_False)
+ok: [c2-control-2] => (item=enable_skydive_False)
+ok: [c2-control-2] => (item=enable_solum_False)
+ok: [c2-control-2] => (item=enable_storm_False)
+ok: [c2-control-2] => (item=enable_swift_False)
+ok: [c2-control-2] => (item=enable_tacker_False)
+ok: [c2-control-2] => (item=enable_telegraf_False)
+ok: [c2-control-2] => (item=enable_tempest_False)
+ok: [c2-control-2] => (item=enable_trove_False)
+ok: [c2-control-2] => (item=enable_vitrage_False)
+ok: [c2-control-2] => (item=enable_vmtp_False)
+ok: [c2-control-2] => (item=enable_watcher_False)
+ok: [c2-control-2] => (item=enable_zookeeper_False)
+ok: [c2-control-2] => (item=enable_zun_False)
+ok: [c2-control-1] => (item=enable_telegraf_False)
+ok: [c2-control-1] => (item=enable_tempest_False)
+ok: [c2-control-1] => (item=enable_trove_False)
+ok: [c2-control-1] => (item=enable_vitrage_False)
+ok: [c2-control-1] => (item=enable_vmtp_False)
+ok: [c2-control-1] => (item=enable_watcher_False)
+ok: [c2-control-1] => (item=enable_zookeeper_False)
+ok: [c2-control-1] => (item=enable_zun_False)
+
+PLAY [Apply role prechecks] ***************************************************************************************************************************************************************************
+
+TASK [prechecks : Ensure /etc/localtime exist] ********************************************************************************************************************************************************
+ok: [localhost]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+ok: [c2-control-2]
+ok: [c2-compute-1]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [prechecks : Fail if /etc/localtime is absent] ***************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [localhost]
+
+TASK [prechecks : Ensure /etc/timezone exist] *********************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [localhost]
+
+TASK [prechecks : Fail if /etc/timezone is absent] ****************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [localhost]
+
+TASK [prechecks : include_tasks] **********************************************************************************************************************************************************************
+skipping: [localhost]
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/prechecks/tasks/port_checks.yml for c2-compute-1, c2-compute-3, c2-compute-2, c2-control-1, c2-control-2, c2-control-3
+
+TASK [prechecks : Checking the api_interface is present] **********************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [prechecks : Checking the api_interface is active] ***********************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [prechecks : Checking the api_interface ip address configuration] ********************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [prechecks : Checking Docker version] ************************************************************************************************************************************************************
+skipping: [localhost]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+ok: [c2-compute-1]
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [prechecks : Checking empty passwords in passwords.yml. Run kolla-genpwd if this task fails] *****************************************************************************************************
+ok: [c2-compute-1 -> localhost]
+
+TASK [prechecks : Check if nscd is running] ***********************************************************************************************************************************************************
+ok: [c2-compute-3]
+ok: [localhost]
+ok: [c2-compute-2]
+ok: [c2-compute-1]
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [prechecks : Fail if nscd is running] ************************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [localhost]
+
+TASK [prechecks : Validate that internal and external vip address are different when TLS is enabled only on either the internal and external network] *************************************************
+skipping: [c2-compute-1]
+
+TASK [prechecks : Checking docker SDK version] ********************************************************************************************************************************************************
+skipping: [localhost]
+ok: [c2-compute-3]
+ok: [c2-compute-2]
+ok: [c2-compute-1]
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [prechecks : Checking Ansible version] ***********************************************************************************************************************************************************
+skipping: [c2-compute-1]
+
+TASK [prechecks : Check if config_owner_user existed] *************************************************************************************************************************************************
+ok: [localhost]
+ok: [c2-control-2]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+ok: [c2-compute-1]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [prechecks : Check if config_owner_group existed] ************************************************************************************************************************************************
+ok: [localhost]
+ok: [c2-compute-3]
+ok: [c2-compute-2]
+ok: [c2-control-1]
+ok: [c2-compute-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [prechecks : Check if ansible user can do passwordless sudo] *************************************************************************************************************************************
+ok: [localhost]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+ok: [c2-compute-1]
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [prechecks : Check if external mariadb hosts are reachable from the load balancer] ***************************************************************************************************************
+skipping: [c2-compute-1] => (item=c2-control-1) 
+skipping: [c2-compute-1] => (item=c2-control-2) 
+skipping: [c2-compute-1] => (item=c2-control-3) 
+skipping: [c2-compute-3] => (item=c2-control-1) 
+skipping: [c2-compute-3] => (item=c2-control-2) 
+skipping: [c2-compute-3] => (item=c2-control-3) 
+skipping: [c2-compute-2] => (item=c2-control-1) 
+skipping: [c2-compute-2] => (item=c2-control-2) 
+skipping: [c2-compute-2] => (item=c2-control-3) 
+skipping: [c2-control-1] => (item=c2-control-1) 
+skipping: [c2-control-1] => (item=c2-control-2) 
+skipping: [c2-control-1] => (item=c2-control-3) 
+skipping: [c2-control-2] => (item=c2-control-1) 
+skipping: [c2-control-2] => (item=c2-control-2) 
+skipping: [c2-control-2] => (item=c2-control-3) 
+skipping: [c2-control-3] => (item=c2-control-1) 
+skipping: [c2-control-3] => (item=c2-control-2) 
+skipping: [c2-control-3] => (item=c2-control-3) 
+skipping: [localhost] => (item=c2-control-1) 
+skipping: [localhost] => (item=c2-control-2) 
+skipping: [localhost] => (item=c2-control-3) 
+
+TASK [prechecks : Check if external database address is reachable from all hosts] *********************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-3]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [localhost]
+
+PLAY [Apply role chrony] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role haproxy] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role collectd] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role zookeeper] ***************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role elasticsearch] ***********************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role influxdb] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role telegraf] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role redis] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role kibana] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mariadb] *****************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [mariadb : include_tasks] ************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/mariadb/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [mariadb : Get container facts] ******************************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [mariadb : Checking free port for MariaDB] *******************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [mariadb : Checking free port for MariaDB WSREP] *************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [mariadb : Checking free port for MariaDB IST] ***************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [mariadb : Checking free port for MariaDB SST] ***************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+PLAY [Apply role memcached] ***************************************************************************************************************************************************************************
+
+TASK [memcached : include_tasks] **********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/memcached/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [memcached : Get container facts] ****************************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [memcached : Checking free port for Memcached] ***************************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-2]
+ok: [c2-control-1]
+
+PLAY [Apply role prometheus] **************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role iscsi] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role multipathd] **************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role rabbitmq] ****************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [rabbitmq : include_tasks] ***********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/rabbitmq/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [rabbitmq : Get container facts] *****************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for RabbitMQ] *****************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for RabbitMQ Management] ******************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for RabbitMQ Cluster] *********************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for RabbitMQ EPMD] ************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [rabbitmq : Check if all rabbit hostnames are resolvable] ****************************************************************************************************************************************
+ok: [c2-control-1] => (item=c2-control-1)
+ok: [c2-control-3] => (item=c2-control-1)
+ok: [c2-control-2] => (item=c2-control-1)
+ok: [c2-control-2] => (item=c2-control-2)
+ok: [c2-control-3] => (item=c2-control-2)
+ok: [c2-control-1] => (item=c2-control-2)
+ok: [c2-control-3] => (item=c2-control-3)
+ok: [c2-control-2] => (item=c2-control-3)
+ok: [c2-control-1] => (item=c2-control-3)
+
+TASK [rabbitmq : Check if each rabbit hostname resolves uniquely to the proper IP address] ************************************************************************************************************
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      STREAM c2-control-1']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      DGRAM  ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.000725', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.993975', 'stderr': '', 'delta': '0:00:00.006750', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      STREAM c2-control-1']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      RAW    ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.000725', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.993975', 'stderr': '', 'delta': '0:00:00.006750', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      DGRAM  ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.000725', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.993975', 'stderr': '', 'delta': '0:00:00.006750', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.354296', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.348091', 'stderr': '', 'delta': '0:00:00.006205', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      STREAM c2-control-1']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      STREAM ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      STREAM c2-control-2']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      DGRAM  ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.354296', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.348091', 'stderr': '', 'delta': '0:00:00.006205', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      DGRAM  ']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.843774', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    \n10.1.17.61      STREAM \n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.836560', 'stderr': '', 'delta': '0:00:00.007214', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      RAW    ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      DGRAM  ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.354296', 'stdout': '10.1.17.61      STREAM c2-control-1\n10.1.17.61      DGRAM  \n10.1.17.61      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-1'], 'rc': 0, 'start': '2022-01-24 15:49:51.348091', 'stderr': '', 'delta': '0:00:00.006205', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-1', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-1', 'ansible_loop_var': 'item'}, '10.1.17.61      RAW    ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      STREAM ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.987709', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:51.979982', 'stderr': '', 'delta': '0:00:00.007727', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      STREAM c2-control-2']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      DGRAM  ']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.459903', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.453959', 'stderr': '', 'delta': '0:00:00.005944', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      STREAM c2-control-2']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.459903', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.453959', 'stderr': '', 'delta': '0:00:00.005944', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      DGRAM  ']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.459903', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.453959', 'stderr': '', 'delta': '0:00:00.005944', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.987709', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:51.979982', 'stderr': '', 'delta': '0:00:00.007727', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      DGRAM  ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.593523', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    \n10.1.17.62      STREAM \n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:52.583068', 'stderr': '', 'delta': '0:00:00.010455', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      RAW    ']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.071359', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.064153', 'stderr': '', 'delta': '0:00:00.007206', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      STREAM c2-control-3']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.071359', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.064153', 'stderr': '', 'delta': '0:00:00.007206', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      DGRAM  ']) 
+skipping: [c2-control-1] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.071359', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.064153', 'stderr': '', 'delta': '0:00:00.007206', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:51.987709', 'stdout': '10.1.17.62      STREAM c2-control-2\n10.1.17.62      DGRAM  \n10.1.17.62      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-2'], 'rc': 0, 'start': '2022-01-24 15:49:51.979982', 'stderr': '', 'delta': '0:00:00.007727', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-2', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-2', 'ansible_loop_var': 'item'}, '10.1.17.62      RAW    ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.207658', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.200990', 'stderr': '', 'delta': '0:00:00.006668', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      STREAM c2-control-3']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.207658', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.200990', 'stderr': '', 'delta': '0:00:00.006668', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      DGRAM  ']) 
+skipping: [c2-control-2] => (item=[{'changed': False, 'end': '2022-01-24 15:49:53.207658', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:53.200990', 'stderr': '', 'delta': '0:00:00.006668', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      STREAM c2-control-3']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      DGRAM  ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      RAW    ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      STREAM ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      DGRAM  ']) 
+skipping: [c2-control-3] => (item=[{'changed': False, 'end': '2022-01-24 15:49:52.561727', 'stdout': '10.1.17.63      STREAM c2-control-3\n10.1.17.63      DGRAM  \n10.1.17.63      RAW    \n10.1.17.63      STREAM \n10.1.17.63      DGRAM  \n10.1.17.63      RAW    ', 'cmd': ['getent', 'ahostsv4', 'c2-control-3'], 'rc': 0, 'start': '2022-01-24 15:49:52.553207', 'stderr': '', 'delta': '0:00:00.008520', 'invocation': {'module_args': {'creates': None, 'executable': None, '_uses_shell': False, 'strip_empty_ends': True, '_raw_params': 'getent ahostsv4 c2-control-3', 'removes': None, 'argv': None, 'warn': True, 'chdir': None, 'stdin_add_newline': True, 'stdin': None}}, 'stderr_lines': [], 'failed': False, 'item': 'c2-control-3', 'ansible_loop_var': 'item'}, '10.1.17.63      RAW    ']) 
+
+TASK [rabbitmq : Checking free port for outward RabbitMQ] *********************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for outward RabbitMQ Management] **********************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for outward RabbitMQ Cluster] *************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [rabbitmq : Checking free port for outward RabbitMQ EPMD] ****************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [rabbitmq : Check if all outward rabbit hostnames are resolvable] ********************************************************************************************************************************
+skipping: [c2-control-1] => (item=c2-control-1) 
+skipping: [c2-control-1] => (item=c2-control-2) 
+skipping: [c2-control-1] => (item=c2-control-3) 
+skipping: [c2-control-2] => (item=c2-control-1) 
+skipping: [c2-control-2] => (item=c2-control-2) 
+skipping: [c2-control-2] => (item=c2-control-3) 
+skipping: [c2-control-3] => (item=c2-control-1) 
+skipping: [c2-control-3] => (item=c2-control-2) 
+skipping: [c2-control-3] => (item=c2-control-3) 
+
+TASK [rabbitmq : Check if each rabbit hostname resolves uniquely to the proper IP address] ************************************************************************************************************
+
+PLAY [Apply role rabbitmq (outward)] ******************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role qdrouterd] ***************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role etcd] ********************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role keystone] ****************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [keystone : include_tasks] ***********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/keystone/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [keystone : Get container facts] *****************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [keystone : Checking free port for Keystone Admin] ***********************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-2]
+ok: [c2-control-1]
+
+TASK [keystone : Checking free port for Keystone Public] **********************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-3]
+ok: [c2-control-2]
+
+TASK [keystone : Checking free port for Keystone SSH] *************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [keystone : Checking fernet_token_expiry] ********************************************************************************************************************************************************
+ok: [c2-control-1] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Apply role ceph] ********************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role kafka] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role storm] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role karbor] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role swift] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role glance] ******************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [glance : include_tasks] *************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/glance/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [glance : Get container facts] *******************************************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-1]
+ok: [c2-control-2]
+
+TASK [glance : Checking free port for Glance API] *****************************************************************************************************************************************************
+skipping: [c2-control-3]
+skipping: [c2-control-2]
+ok: [c2-control-1]
+
+PLAY [Apply role ironic] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cinder] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role placement] ***************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [placement : include_tasks] **********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/placement/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [placement : Get container facts] ****************************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-3]
+ok: [c2-control-1]
+
+TASK [placement : Checking free port for Placement API] ***********************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-2]
+ok: [c2-control-1]
+
+PLAY [Bootstrap nova API databases] *******************************************************************************************************************************************************************
+
+TASK [Bootstrap deploy] *******************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Bootstrap upgrade] ******************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Bootstrap nova cell databases] ******************************************************************************************************************************************************************
+
+TASK [Bootstrap deploy] *******************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Bootstrap upgrade] ******************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Apply role nova] ********************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova : include_tasks] ***************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/nova/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [nova : Get container facts] *********************************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [nova : Checking free port for Nova API] *********************************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-2]
+ok: [c2-control-1]
+
+TASK [nova : Checking free port for Nova Metadata] ****************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-3]
+ok: [c2-control-1]
+
+TASK [nova : Check that legacy upgrade is not enabled] ************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Apply role nova-cell] ***************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova-cell : include_tasks] **********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/nova-cell/tasks/precheck.yml for c2-compute-1, c2-compute-2, c2-compute-3, c2-control-1, c2-control-2, c2-control-3
+
+TASK [nova-cell : Get container facts] ****************************************************************************************************************************************************************
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+ok: [c2-control-2]
+ok: [c2-control-3]
+ok: [c2-control-1]
+
+TASK [nova-cell : Checking available compute nodes in inventory] **************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova-cell : Checking free port for Nova NoVNC Proxy] ********************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [nova-cell : Checking free port for Nova Serial Proxy] *******************************************************************************************************************************************
+skipping: [c2-compute-3]
+skipping: [c2-compute-1]
+skipping: [c2-control-2]
+skipping: [c2-compute-2]
+skipping: [c2-control-1]
+skipping: [c2-control-3]
+
+TASK [nova-cell : Checking free port for Nova Spice HTML5 Proxy] **************************************************************************************************************************************
+skipping: [c2-compute-3]
+skipping: [c2-control-3]
+skipping: [c2-compute-2]
+skipping: [c2-compute-1]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+
+TASK [nova-cell : Checking free port for Nova SSH] ****************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+
+TASK [nova-cell : Checking free port for Nova Libvirt] ************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+
+TASK [nova-cell : Checking that libvirt is not running] ***********************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-compute-3]
+
+PLAY [Refresh nova scheduler cell cache] **************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Refresh cell cache in nova scheduler] ***********************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Reload global Nova super conductor services] ****************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Reload nova super conductor services to remove RPC version pin] *********************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Reload Nova cell services] **********************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova-cell : Reload nova cell services to remove RPC version cap] ********************************************************************************************************************************
+skipping: [c2-compute-1] => (item=nova-conductor) 
+skipping: [c2-compute-1] => (item=nova-compute) 
+skipping: [c2-compute-1] => (item=nova-compute-ironic) 
+skipping: [c2-compute-1] => (item=nova-novncproxy) 
+skipping: [c2-compute-1] => (item=nova-serialproxy) 
+skipping: [c2-compute-1] => (item=nova-spicehtml5proxy) 
+skipping: [c2-compute-2] => (item=nova-conductor) 
+skipping: [c2-compute-2] => (item=nova-compute) 
+skipping: [c2-compute-2] => (item=nova-compute-ironic) 
+skipping: [c2-compute-2] => (item=nova-novncproxy) 
+skipping: [c2-compute-2] => (item=nova-serialproxy) 
+skipping: [c2-compute-2] => (item=nova-spicehtml5proxy) 
+skipping: [c2-compute-3] => (item=nova-conductor) 
+skipping: [c2-compute-3] => (item=nova-compute) 
+skipping: [c2-compute-3] => (item=nova-compute-ironic) 
+skipping: [c2-compute-3] => (item=nova-novncproxy) 
+skipping: [c2-compute-3] => (item=nova-serialproxy) 
+skipping: [c2-compute-3] => (item=nova-spicehtml5proxy) 
+skipping: [c2-control-1] => (item=nova-conductor) 
+skipping: [c2-control-1] => (item=nova-compute) 
+skipping: [c2-control-1] => (item=nova-compute-ironic) 
+skipping: [c2-control-1] => (item=nova-novncproxy) 
+skipping: [c2-control-1] => (item=nova-serialproxy) 
+skipping: [c2-control-1] => (item=nova-spicehtml5proxy) 
+skipping: [c2-control-2] => (item=nova-conductor) 
+skipping: [c2-control-2] => (item=nova-compute) 
+skipping: [c2-control-2] => (item=nova-compute-ironic) 
+skipping: [c2-control-2] => (item=nova-novncproxy) 
+skipping: [c2-control-2] => (item=nova-serialproxy) 
+skipping: [c2-control-2] => (item=nova-spicehtml5proxy) 
+skipping: [c2-control-3] => (item=nova-conductor) 
+skipping: [c2-control-3] => (item=nova-compute) 
+skipping: [c2-control-3] => (item=nova-compute-ironic) 
+skipping: [c2-control-3] => (item=nova-novncproxy) 
+skipping: [c2-control-3] => (item=nova-serialproxy) 
+skipping: [c2-control-3] => (item=nova-spicehtml5proxy) 
+
+PLAY [Reload global Nova API services] ****************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Reload nova API services to remove RPC version pin] *********************************************************************************************************************************************
+skipping: [c2-control-1] => (item=nova-scheduler) 
+skipping: [c2-control-1] => (item=nova-api) 
+skipping: [c2-control-2] => (item=nova-scheduler) 
+skipping: [c2-control-2] => (item=nova-api) 
+skipping: [c2-control-3] => (item=nova-scheduler) 
+skipping: [c2-control-3] => (item=nova-api) 
+
+PLAY [Run Nova API online data migrations] ************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova : Run Nova API online database migrations] *************************************************************************************************************************************************
+skipping: [c2-control-1]
+
+PLAY [Run Nova cell online data migrations] ***********************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [nova-cell : Run Nova cell online database migrations] *******************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+PLAY [Apply role opendaylight] ************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role openvswitch] *************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+
+TASK [openvswitch : include_tasks] ********************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/openvswitch/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3, c2-compute-1, c2-compute-2, c2-compute-3
+
+TASK [openvswitch : Get container facts] **************************************************************************************************************************************************************
+ok: [c2-compute-3]
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-compute-2]
+ok: [c2-control-3]
+ok: [c2-compute-1]
+
+TASK [openvswitch : Checking free port for OVSDB] *****************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-compute-1]
+ok: [c2-compute-2]
+ok: [c2-control-3]
+ok: [c2-compute-3]
+
+PLAY [Apply role ovs-dpdk] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role nova-hyperv] *************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role neutron] *****************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+
+TASK [neutron : include_tasks] ************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/neutron/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3, c2-compute-1, c2-compute-2, c2-compute-3
+
+TASK [neutron : Get container facts] ******************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+ok: [c2-compute-2]
+ok: [c2-compute-1]
+ok: [c2-compute-3]
+
+TASK [neutron : Checking free port for Neutron Server] ************************************************************************************************************************************************
+skipping: [c2-compute-1]
+skipping: [c2-compute-2]
+skipping: [c2-compute-3]
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [neutron : Checking number of network agents] ****************************************************************************************************************************************************
+skipping: [c2-control-1]
+
+TASK [neutron : Checking tenant network types] ********************************************************************************************************************************************************
+skipping: [c2-control-1] => (item=vxlan) 
+
+TASK [neutron : Checking whether Ironic enabled] ******************************************************************************************************************************************************
+skipping: [c2-control-1]
+
+PLAY [Apply role kuryr] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role heat] ********************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [heat : include_tasks] ***************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/heat/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [heat : Get container facts] *********************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-2]
+ok: [c2-control-3]
+
+TASK [heat : Checking free port for Heat API] *********************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+TASK [heat : Checking free port for Heat API CFN] *****************************************************************************************************************************************************
+ok: [c2-control-2]
+ok: [c2-control-1]
+ok: [c2-control-3]
+
+PLAY [Apply role horizon] *****************************************************************************************************************************************************************************
+
+TASK [common : include_tasks] *************************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [Registering common role has run] ****************************************************************************************************************************************************************
+skipping: [c2-control-1]
+skipping: [c2-control-2]
+skipping: [c2-control-3]
+
+TASK [horizon : include_tasks] ************************************************************************************************************************************************************************
+included: /venv_kolla-c2/share/kolla-ansible/ansible/roles/horizon/tasks/precheck.yml for c2-control-1, c2-control-2, c2-control-3
+
+TASK [horizon : Get container facts] ******************************************************************************************************************************************************************
+ok: [c2-control-1]
+ok: [c2-control-3]
+ok: [c2-control-2]
+
+TASK [horizon : Checking free port for Horizon] *******************************************************************************************************************************************************
+ok: [c2-control-3]
+ok: [c2-control-1]
+ok: [c2-control-2]
+
+PLAY [Apply role murano] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role solum] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role magnum] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mistral] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role qinling] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role sahara] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role mongodb] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role panko] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role manila] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role gnocchi] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role ceilometer] **************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role monasca] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role aodh] ********************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role barbican] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role congress] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cyborg] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role tempest] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role designate] ***************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role rally] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role vmtp] ********************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role trove] *******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role watcher] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role grafana] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role cloudkitty] **************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role freezer] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role senlin] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role searchlight] *************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role tacker] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role octavia] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role zun] *********************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role skydive] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role vitrage] *****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role blazar] ******************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Apply role masakari] ****************************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ********************************************************************************************************************************************************************************************
+c2-compute-1               : ok=25   changed=3    unreachable=0    failed=0    skipped=23   rescued=0    ignored=0   
+c2-compute-2               : ok=24   changed=3    unreachable=0    failed=0    skipped=21   rescued=0    ignored=0   
+c2-compute-3               : ok=24   changed=3    unreachable=0    failed=0    skipped=21   rescued=0    ignored=0   
+c2-control-1               : ok=62   changed=3    unreachable=0    failed=0    skipped=68   rescued=0    ignored=0   
+c2-control-2               : ok=60   changed=3    unreachable=0    failed=0    skipped=65   rescued=0    ignored=0   
+c2-control-3               : ok=60   changed=3    unreachable=0    failed=0    skipped=65   rescued=0    ignored=0   
+localhost                  : ok=10   changed=3    unreachable=0    failed=0    skipped=9    rescued=0    ignored=0   
+
