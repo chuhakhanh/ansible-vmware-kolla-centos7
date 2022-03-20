@@ -12,12 +12,12 @@
         password: "{{ vcenter_password }}"
         datacenter: "{{ vcenter_datacenter }}"
         validate_certs: no
-        resource_pool: kolla-centos-7
+        resource_pool: "{{ item.resource_pool }}"
         folder: /khanhchu
         name: "{{ item.name }}"
         state: poweredon
         template: centos-7.4-kolla
-        esxi_hostname: 10.1.17.16
+        esxi_hostname: "{{ item.esxi_hostname }}"
         disk: "{{ item.disk }}"
         hardware:
           memory_mb: 16384
@@ -30,6 +30,8 @@
           hotadd_memory: False
           boot_firmware: "efi"
         networks: "{{ item.networks }}"
+        customization:
+          dns_servers: 8.8.8.8 
         wait_for_ip_address: true
         wait_for_ip_address_timeout: 600
       loop: "{{ vms }}" 
