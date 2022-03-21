@@ -9,6 +9,13 @@
       copy:
         src: hosts
         dest: /etc/hosts
+    
+    - name: confirm require installed
+      yum: name={{item}} state=installed
+      with_items:
+         - epel-release
+         # - python-pip
+         
       
     - name: Make sure we have yum-utils
       yum: name=yum-utils state=latest
