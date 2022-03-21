@@ -16,7 +16,9 @@ done
 ansible-playbook -i all-in-one.cent7.control-4 prepare_all_node.yml
 ansible-playbook -i all-in-one.cent7.control-4 prepare_storage_lvm.yml
 
-kolla-ansible --configdir ./ -i ./all-in-one-control-3 bootstrap-servers
+cp kolla/globals.cent7.train.rating.yml kolla/globals.yml
+
+kolla-ansible --configdir ./kolla -i ./all-in-one-control-3 bootstrap-servers
 kolla-ansible -configdir ./ -i ./all-in-one-control-3 prechecks
 kolla-ansible -configdir ./ -i ./all-in-one-control-3 deploy
 
