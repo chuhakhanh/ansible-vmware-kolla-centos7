@@ -1,14 +1,14 @@
 # ansible-vmware-kolla-centos7
 
 # I - prepare centos-7-2009 minimal
-update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-update-alternatives --install /usr/bin/python python /usr/bin/python2 10
-python --version
-python --version
+sudo yum install python-pip
+sudo pip install docker
+yum install -y python3
+
+
 # II - deploy openstack base centos-7-2009
 
-source /venv_kolla-c2/bin/activate
-cd /venv_kolla-c2/share/
+source /venv_kolla-c2/bin/activate; cd /venv_kolla-c2/share/
 ## prepare openstack environment
 ansible-playbook deploy_vms_kolla_cluster.yml 
 
