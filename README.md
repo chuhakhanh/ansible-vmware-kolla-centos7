@@ -1,9 +1,41 @@
 # ansible-vmware-kolla-centos7
 
 # I - prepare centos-7-2009 minimal
-sudo yum install python-pip
-sudo pip install docker
+
+yum install docker
+
+## pip3
 yum install -y python3
+sudo yum install python3-pip
+sudo pip3 install docker
+pip3 install "kolla-ansible==9.0.*"
+
+## pip
+sudo yum install python-devel libffi-devel gcc openssl-devel libselinux-python
+sudo yum install python-virtualenv
+virtualenv /path/to/virtualenv
+source /path/to/virtualenv/bin/activate
+pip install -U pip
+pip install -U setuptools
+pip install 'ansible<2.10'
+pip install "kolla-ansible==9.0.*"
+mkdir /etc/kolla/
+cp -r /path/to/virtualenv/share/kolla-ansible/etc_examples/kolla/* /etc/kolla
+ssh-keygen
+cd /path/to/virtualenv/share/kolla-ansible/ansible/inventory/
+cat all-in-one 
+ansible -i all-in-one all -m ping
+
+## storage prepare 20G 
+dd if=/dev/zero of=/var/loopbackfile.img bs=100M count=200
+
+### Create or use losetup -d /dev/loop1 to remove
+losetup -fP /var/loopbackfile.img
+losetup -a
+/dev/loop0: [64768]:76856 (/CentOS-7-x86_64-DVD-2009.iso)
+/dev/loop1: [64768]:67379733 (/var/loopbackfile.img)
+pvcreate /dev/loop1
+vgcreate cinder-volumes /dev/loop1
 
 
 # II - deploy openstack base centos-7-2009
