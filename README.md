@@ -59,3 +59,6 @@ kolla-ansible --configdir ./kolla -i ./all-in-one.cent7.control-4 bootstrap-serv
 kolla-ansible --configdir ./kolla -i ./all-in-one.cent7.control-4 prechecks
 kolla-ansible --configdir ./kolla -i ./all-in-one.cent7.control-4 deploy
 
+### svc
+cp kolla/globals.cent7.train.svc.yml kolla/globals.yml
+kolla-ansible --configdir ./kolla -i ./all-in-one bootstrap-servers
