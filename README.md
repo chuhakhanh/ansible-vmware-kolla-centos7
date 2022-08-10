@@ -4,13 +4,13 @@
 centos-7-2009 minimal
 ## storage prepare for cinder-volumes 20G 
 
-dd if=/dev/zero of=/var/loopbackfile.img bs=100M count=200
-losetup /dev/loop2 /var/loopbackfile.img
-echo "losetup /dev/loop2 /var/loopbackfile.img; exit 0;" > /etc/init.d/cinder-setup-backing-file
-chmod 755 /etc/init.d/cinder-setup-backing-file
-ln -s /etc/init.d/cinder-setup-backing-file /etc/rc2.d/S10cinder-setup-backing-file
-pvcreate /dev/loop2
-vgcreate cinder-volumes /dev/loop2
+  dd if=/dev/zero of=/var/loopbackfile.img bs=100M count=200
+  losetup /dev/loop2 /var/loopbackfile.img
+  echo "losetup /dev/loop2 /var/loopbackfile.img; exit 0;" > /etc/init.d/cinder-setup-backing-file
+  chmod 755 /etc/init.d/cinder-setup-backing-file
+  ln -s /etc/init.d/cinder-setup-backing-file /etc/rc2.d/S10cinder-setup-backing-file
+  pvcreate /dev/loop2
+  vgcreate cinder-volumes /dev/loop2
 
 # II - Setup
 ## A - with python2(legacy) 
@@ -59,8 +59,8 @@ kolla-ansible --configdir ./kolla -i ./all-in-one.cent7.control-4 deploy
 After 6/2022, python2 help problem with docker SDK. 
 Kolla-ansible need to deploy with python3. 
 ### pip3
-yum install -y python3
-sudo yum install python3-pip
+  yum install -y python3
+  sudo yum install python3-pip
 
 ### virtual env
 virtualenv --python=python3 /path/to/virtualenv_python3
